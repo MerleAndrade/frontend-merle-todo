@@ -4,7 +4,7 @@ import TodoCard from "./TodoCard";
 type BoardProps = {
     title: string,
     todos: Todo[],
-    advanceTodo : (todo: Todo) => void,
+    advanceTodo : (todo: Todo) => void
     deleteTodo :(id: string) => void
 }
 
