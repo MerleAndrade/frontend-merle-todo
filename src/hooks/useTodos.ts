@@ -22,8 +22,11 @@ export function useTodos () {
             description: description,
             status: "OPEN"
         }
-        axios.post("/api/todo", newTodo)
-            .then(getAllTodos)
+        return axios.post<Todo>("/api/todo", newTodo)
+            .then((response) => {
+            getAllTodos()
+            return response.data
+        })
     }
 
     const advanceTodo = (todo: Todo) => {
