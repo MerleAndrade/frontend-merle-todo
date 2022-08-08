@@ -1,5 +1,7 @@
 import {Todo} from "../model/Todo";
 import TodoCard from "./TodoCard";
+import"./Board.css"
+
 
 type BoardProps = {
     title: string,
@@ -11,12 +13,11 @@ type BoardProps = {
 export default function Board (props: BoardProps){
 
     return(
-        <div>
-            <p>{props.title}</p>
-            {props.todos.map((currentTodo) => <TodoCard todo={currentTodo}
-                                                        advanceTodo={props.advanceTodo}
-                                                        deleteTodo={props.deleteTodo}/>)}
-
+        <div className="board">
+            <p className="boardTitle">{props.title}</p>
+            <p className="cardElements">{props.todos.map((currentTodo) => <TodoCard todo={currentTodo}
+                                                                                    advanceTodo={props.advanceTodo}
+                                                                                    deleteTodo={props.deleteTodo}/>)}</p>
         </div>
     )
 }

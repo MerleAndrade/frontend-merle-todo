@@ -1,5 +1,6 @@
 import {Todo} from "../model/Todo";
 import Board from "./Board";
+import "./BoardOverview.css"
 
 type BoardOverviewProps = {
     todos: Todo[],
@@ -17,12 +18,12 @@ export default function BoardOverview(props: BoardOverviewProps){
 
     return(
 
-        <div>
+        <p className="boards">
             <Board title ="Open" todos={openTodos} advanceTodo ={props.advanceTodo} deleteTodo={props.deleteTodo}/>
             <Board title ="In Progress" todos={inProgressTodos} advanceTodo ={props.advanceTodo} deleteTodo={props.deleteTodo}/>
             <Board title ="Done" todos={doneTodos} advanceTodo ={props.advanceTodo} deleteTodo={props.deleteTodo}/>
 
 
-        </div>
+        </p>
     )
 }
