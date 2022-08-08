@@ -18,9 +18,9 @@ export default function BoardOverview(props: BoardOverviewProps){
     return(
 
         <div>
-            <Board todos={openTodos} advanceTodo ={props.advanceTodo} deleteTodo={props.deleteTodo}/>
-            <Board todos={inProgressTodos} advanceTodo ={props.advanceTodo} deleteTodo={props.deleteTodo}/>
-            <Board todos={doneTodos} advanceTodo ={props.advanceTodo} deleteTodo={props.deleteTodo}/>
+            <Board title ="Open" todos={openTodos} advanceTodo ={props.advanceTodo} deleteTodo={props.deleteTodo}/>
+            <Board title ="IN Progress" todos={inProgressTodos} advanceTodo ={props.advanceTodo} deleteTodo={props.deleteTodo}/>
+            <Board title ="Done" todos={doneTodos} advanceTodo ={props.advanceTodo} deleteTodo={props.deleteTodo}/>
 
 
         </div>
