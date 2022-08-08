@@ -2,8 +2,9 @@ import {Todo} from "../model/Todo";
 import Board from "./Board";
 
 type BoardOverviewProps = {
-    todos: Todo[]
-    advanceTodo : (todo: Todo) => void
+    todos: Todo[],
+    advanceTodo : (todo: Todo) => void,
+    deleteTodo :(id: string) => void
 }
 
 
@@ -17,9 +18,9 @@ export default function BoardOverview(props: BoardOverviewProps){
     return(
 
         <div>
-            <Board todos={openTodos} advanceTodo ={props.advanceTodo}/>
-            <Board todos={inProgressTodos} advanceTodo ={props.advanceTodo}/>
-            <Board todos={doneTodos} advanceTodo ={props.advanceTodo}/>
+            <Board todos={openTodos} advanceTodo ={props.advanceTodo} deleteTodo={props.deleteTodo}/>
+            <Board todos={inProgressTodos} advanceTodo ={props.advanceTodo} deleteTodo={props.deleteTodo}/>
+            <Board todos={doneTodos} advanceTodo ={props.advanceTodo} deleteTodo={props.deleteTodo}/>
 
 
         </div>

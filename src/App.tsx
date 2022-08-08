@@ -38,11 +38,15 @@ const addTodo = (description: string) => {
         .then(getAllTodos)
  }
 
+ const deleteTodo = (id: string) => {
+    axios.delete(`/api/todo/${id}`)
+        .then(getAllTodos)
+ }
 
 
 return (
     <div>
-      <BoardOverview todos = {todos} advanceTodo={advanceTodo}/>
+      <BoardOverview todos = {todos} advanceTodo={advanceTodo} deleteTodo={deleteTodo}/>
         <AddTodo addTodo ={addTodo}/>
     </div>
   );

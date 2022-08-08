@@ -1,8 +1,9 @@
 import {Todo} from "../model/Todo";
 
 type TodoCardProps = {
-    todo: Todo
-    advanceTodo : (todo: Todo) => void
+    todo: Todo,
+    advanceTodo : (todo: Todo) => void,
+    deleteTodo :(id: string) => void
 }
 
 export default function TodoCard (props: TodoCardProps) {
@@ -11,6 +12,7 @@ export default function TodoCard (props: TodoCardProps) {
         <div>
             {props.todo.description}
             <button onClick ={() => props.advanceTodo(props.todo)}>Advance</button>
+            <button onClick ={() => props.deleteTodo(props.todo.id)}>Delete</button>
         </div>
     )
 }
