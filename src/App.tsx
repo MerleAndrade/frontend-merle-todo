@@ -1,48 +1,11 @@
-import React, {useEffect, useState} from 'react';
 import './App.css';
-import {Todo} from "./model/Todo";
 import BoardOverview from "./components/BoardOverview";
-import axios from "axios";
 import AddTodo from "./components/AddTodo";
-import {getNextStatus} from "./service/todo-service";
+import {useTodos} from "./hooks/useTodos";
 
 function App() {
 
-const [todos, setTodos] = useState <Todo[]>([]);
-
-useEffect(() => {
-    getAllTodos()
-}, [])
-
-const getAllTodos = () => {
-    axios.get("/api/todo")
-        .then((response) => response.data)
-        .then((data) => setTodos(data))
-}
-
-const addTodo = (description: string) => {
-    const newTodo = {
-        description: description,
-        status: "OPEN"
-    }
-    axios.post("/api/todo", newTodo)
-        .then(getAllTodos)
-}
- const advanceTodo = (todo: Todo) => {
-    const updateTodo ={
-        id: todo.id,
-        description: todo.description,
-        status: getNextStatus(todo.status)
-    }
-    axios.put(`/api/todo/${todo.id}`, updateTodo)
-        .then(getAllTodos)
- }
-
- const deleteTodo = (id: string) => {
-    axios.delete(`/api/todo/${id}`)
-        .then(getAllTodos)
- }
-
+    const {todos, addTodo, advanceTodo, deleteTodo} = useTodos()
 
 return (
     <div>
